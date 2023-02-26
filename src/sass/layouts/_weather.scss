@@ -1,21 +1,29 @@
 .hero__section-weather {
-  font-family: Lato;
-}
-.weather-contetn {
+  margin-bottom: 32px;
+  max-width: 280px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 280px;
-  padding: 32px 57px;
-  background-color: #27384a;
-  border-radius: 34px;
+
   @include tablet {
     max-width: 680px;
   }
   @include desktop {
     max-width: 411px;
+    margin: 0;
+    margin-bottom: 85px;
+    margin: 92px 0px 20px auto;
+  }
+}
+.weather-contetn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 57px;
+  background-color: #27384a;
+  border-radius: 34px;
+  margin-bottom: 32px;
+  @include desktop {
+    border-radius: 32px 0 0 32px;
   }
 }
 .weather-img {
@@ -54,4 +62,8 @@
 }
 .weather__list-minormax {
   display: flex;
+}
+.btn-home {
+  margin-left: auto;
+  margin-right: auto;
 }

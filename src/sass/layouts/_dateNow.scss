@@ -1,0 +1,99 @@
+.section__bottom-left {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 276px;
+  border-radius: 34px;
+  background-color: rgba(16, 33, 54, 0.8);
+  padding: 32px 61px;
+  margin-bottom: 44px;
+  @include tablet {
+    max-width: 704px;
+    padding: 32px 207px;
+  }
+  @include desktop {
+    padding: 50px 103px 80px 16px;
+    border-radius: 0 34px 0 0;
+    margin: 0;
+  }
+}
+.date__now {
+  font-size: 45px;
+  line-height: 54px;
+  font-weight: 300;
+  letter-spacing: 4%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 19px;
+  @include tablet {
+    font-size: 90px;
+    line-height: 108px;
+    margin-bottom: 16px;
+  }
+  @include desktop {
+    max-width: 280px;
+  }
+}
+
+.day-ending {
+  font-size: 75%;
+  top: -0.5em;
+
+  position: relative;
+}
+.all-time {
+  @include desktop {
+    display: flex;
+  }
+}
+.date__month-time {
+  display: flex;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 4%;
+
+  justify-content: space-around;
+  margin-bottom: 16px;
+  @include tablet {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 30px;
+  }
+  @include desktop {
+    margin-right: 136px;
+    margin-bottom: 0;
+  }
+}
+.month-now {
+  padding-right: 17px;
+  margin-right: 17px;
+  border-right: 1px solid rgba(118, 125, 133, 1);
+  @include tablet {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+.sun-time {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  @include tablet {
+    max-width: 189px;
+    font-size: 18px;
+    line-height: 22px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.sunrise_time {
+  display: flex;
+  margin-right: 8px;
+  @include desktop {
+    margin-right: 29px;
+  }
+}
+.sunset_time {
+  display: flex;
+}
+.sun_time-img {
+  margin-right: 8px;
+}
