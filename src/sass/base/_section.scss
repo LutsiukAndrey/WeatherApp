@@ -1,0 +1,13 @@
+.section {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  @include tablet {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @include desktop {
+    padding-top: 80px;
+    padding-bottom: 0px;
+  }
+}

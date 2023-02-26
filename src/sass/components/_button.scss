@@ -1,0 +1,49 @@
+.favorite-btn {
+  fill: #000000;
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  opacity: 0.471;
+  border: none;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: fill 200ms linear;
+  background: url(../images/Star.png) no-repeat center;
+}
+.nav__buttons-list {
+  // margin-left: auto;
+  // margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  @include tablet {
+    max-width: 336px;
+  }
+  @include desktop {
+    max-width: 395px;
+  }
+}
+.nav__button {
+  padding: 5px 39px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: transparent;
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  &:hover,
+  &:focus {
+    background-color: #fff;
+  }
+  @include tablet {
+    padding: 5px 52px;
+  }
+  @include desktop {
+    padding: 5px 67px;
+  }
+}

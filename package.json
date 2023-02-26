@@ -2,8 +2,7 @@
   "name": "start-project-parcel",
   "version": "1.0.0",
   "description": "start",
-
-"homepage": "https://LutsiukAndrey.github.io/WeatherApp",
+  "homepage": "https://LutsiukAndrey.github.io/WeatherApp",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /WeatherApp/"

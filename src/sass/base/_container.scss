@@ -1,0 +1,33 @@
+.container {
+  margin: 0 auto;
+  max-width: 480px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include tablet {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @include desktop {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 1280px;
+  }
+}
+.main-container {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0% /
+      cover,
+    url(https://s3-alpha-sig.figma.com/img/397a/10c5/57dc983b88e6ebf2b06aca7809b0e87d?Expires=1678060800&Signature=W5GUXaCdvO8kI9zKrDslrOraPlz5BkIAq7hHQ~ovkFe9GUD75gouXUGamTgGTVwcUNn4jRwuyZYolK7vumvQ0cCsB-g4k7ykgUs8DyuKnqSUPidUxK3gR-q52brSpjsgEkHvSYAjceh2aLSaixIxzvznbFghQh60RPhgzNaqvyTGvZ5Kfxypwn8Ort8oTpDoFd2-GCG2WlkXq1MStw1uTdgrXE4yUVWQiHxdcpHwgvrU~RdBw5FCQB2-qRgPWkCoj2xjZUOGXAvP9JPQKczmb6HAL-vMoo3uBg1k0y2GfWf9R0KXLMF2Ag4EaXnIPaqHKTWikhl~xpYwcgKo8e~Uwg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+.five-days-container {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0% /
+      cover,
+    url(https://oir.mobi/uploads/posts/2019-11/1574942723_zakat-v-gorah-68.jpg);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+}

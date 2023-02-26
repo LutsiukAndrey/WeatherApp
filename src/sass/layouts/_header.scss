@@ -1,0 +1,83 @@
+.weather-form {
+  margin: 0 auto;
+  margin-bottom: 40px;
+  max-width: 280px;
+  @include tablet {
+    padding: 13px 0;
+    max-width: 704px;
+  }
+  @include desktop {
+    max-width: 822px;
+  }
+}
+
+.search-form {
+  background-color: white;
+  padding: 15px 20px;
+  position: relative;
+  align-items: center;
+  border-radius: 30px;
+  margin-bottom: 16px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    top: 25%;
+    background: url(../images/location.png) no-repeat center;
+    opacity: 0.3;
+    background-size: contain;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+  }
+
+  .search-input {
+    border: none;
+    padding: 0;
+    padding-left: 34px;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    width: 75%;
+    outline: none;
+
+    &::placeholder {
+      color: black;
+      font-size: 14px;
+    }
+  }
+}
+.favorit__city {
+    display: flex;
+  }
+  .favorit__city-btn {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 5px 12px;
+    background-color: rgba(16, 33, 54, 0.5);
+    border: transparent;
+    color: #fff;
+    font-size: 12px;
+    line-height: 14px;
+    font-family: Lato;
+    font-weight: 400;
+  
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+    &:first-child {
+      margin-left: 32px;
+    }
+    @include tablet {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  .delete-city {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    opacity: 100%;
+  }
+  

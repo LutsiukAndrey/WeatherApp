@@ -1,0 +1,69 @@
+.hero__section-weather {
+  margin-bottom: 32px;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include tablet {
+    max-width: 680px;
+  }
+  @include desktop {
+    max-width: 411px;
+    margin: 0;
+    margin-bottom: 85px;
+    margin: 92px 0px 20px auto;
+  }
+}
+.weather-contetn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 57px;
+  background-color: #27384a;
+  border-radius: 34px;
+  margin-bottom: 32px;
+  @include desktop {
+    border-radius: 32px 0 0 32px;
+  }
+}
+.weather-img {
+  margin-bottom: 4px;
+}
+.tempreture {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.deg-now {
+  color: #fff;
+  font-size: 45px;
+  line-height: 54px;
+  font-weight: 300;
+}
+.location {
+  margin-left: auto;
+  margin-right: auto;
+  color: #767d85;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 16px;
+}
+.list-temp {
+  color: #767d85;
+}
+.weather__list-min {
+  padding-right: 8px;
+  border-right: #767d85 1px solid;
+  margin-right: 8px;
+}
+.list-deg {
+  color: #fff;
+}
+.weather__list-minormax {
+  display: flex;
+}
+.btn-home {
+  margin-left: auto;
+  margin-right: auto;
+}

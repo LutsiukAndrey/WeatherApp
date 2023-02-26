@@ -1,3 +1,10 @@
-.hero-title {
-  color: aqua;
+.section__bottom {
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.section_quote {
+  max-width: 395px;
 }
