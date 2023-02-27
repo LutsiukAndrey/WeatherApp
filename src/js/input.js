@@ -6,4 +6,3 @@ const onSubmit = event => {
 };
 input.addEventListener('submit', onSubmit);
 console.log('sadfasdf');
-console.log('asdasdasdasdasd');
