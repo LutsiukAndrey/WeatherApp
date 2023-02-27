@@ -1,1 +1,1 @@
-import './js/input';
+import './js/homePage';
