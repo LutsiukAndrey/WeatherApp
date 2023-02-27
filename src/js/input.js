@@ -5,3 +5,4 @@ const onSubmit = event => {
   console.log(value);
 };
 input.addEventListener('submit', onSubmit);
+console.log('sadfasdf');
