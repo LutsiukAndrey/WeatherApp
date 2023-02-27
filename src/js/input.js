@@ -1,8 +1,7 @@
-const input = document.querySelector('.search-form');
-const onSubmit = event => {
+import { fetchBcgImg } from './changeBcg';
+export const onSubmit = event => {
   event.preventDefault();
   const { value } = event.target.query;
-  console.log(value);
+  fetchBcgImg(value.toLowerCase());
 };
-input.addEventListener('submit', onSubmit);
-console.log('sadfasdf');
+fetchBcgImg('kyiv');
