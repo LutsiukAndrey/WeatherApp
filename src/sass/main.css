@@ -31,15 +31,8 @@
   }
 }
 
-.main-container {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0%/cover, url(https://s3-alpha-sig.figma.com/img/397a/10c5/57dc983b88e6ebf2b06aca7809b0e87d?Expires=1678060800&Signature=W5GUXaCdvO8kI9zKrDslrOraPlz5BkIAq7hHQ~ovkFe9GUD75gouXUGamTgGTVwcUNn4jRwuyZYolK7vumvQ0cCsB-g4k7ykgUs8DyuKnqSUPidUxK3gR-q52brSpjsgEkHvSYAjceh2aLSaixIxzvznbFghQh60RPhgzNaqvyTGvZ5Kfxypwn8Ort8oTpDoFd2-GCG2WlkXq1MStw1uTdgrXE4yUVWQiHxdcpHwgvrU~RdBw5FCQB2-qRgPWkCoj2xjZUOGXAvP9JPQKczmb6HAL-vMoo3uBg1k0y2GfWf9R0KXLMF2Ag4EaXnIPaqHKTWikhl~xpYwcgKo8e~Uwg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: cover;
-}
-
-.five-days-container {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0%/cover, url(https://oir.mobi/uploads/posts/2019-11/1574942723_zakat-v-gorah-68.jpg);
+.container-gradient {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)) 0% 0%/cover;
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
@@ -67,6 +60,10 @@ body {
   font-weight: 600;
   color: var(--light-text-color);
   margin: 0;
+  background-image: url(https://s3-alpha-sig.figma.com/img/397a/10c5/57dc983b88e6ebf2b06aca7809b0e87d?Expires=1678060800&Signature=W5GUXaCdvO8kI9zKrDslrOraPlz5BkIAq7hHQ~ovkFe9GUD75gouXUGamTgGTVwcUNn4jRwuyZYolK7vumvQ0cCsB-g4k7ykgUs8DyuKnqSUPidUxK3gR-q52brSpjsgEkHvSYAjceh2aLSaixIxzvznbFghQh60RPhgzNaqvyTGvZ5Kfxypwn8Ort8oTpDoFd2-GCG2WlkXq1MStw1uTdgrXE4yUVWQiHxdcpHwgvrU~RdBw5FCQB2-qRgPWkCoj2xjZUOGXAvP9JPQKczmb6HAL-vMoo3uBg1k0y2GfWf9R0KXLMF2Ag4EaXnIPaqHKTWikhl~xpYwcgKo8e~Uwg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
 }
 
 .visually-hidden {
@@ -142,17 +139,6 @@ button {
   border-radius: 30px;
   margin-bottom: 16px;
 }
-.search-form::before {
-  content: "";
-  display: inline-block;
-  top: 25%;
-  background: url(../images/location.png) no-repeat center;
-  opacity: 0.3;
-  background-size: contain;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-}
 .search-form .search-input {
   border: none;
   padding: 0;
@@ -166,6 +152,24 @@ button {
 .search-form .search-input::placeholder {
   color: black;
   font-size: 14px;
+}
+
+.geo__city-btn {
+  fill: #000000;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  opacity: 0.471;
+  border: none;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: fill 200ms linear;
+  background: url(../images/location.png) no-repeat center;
 }
 
 .favorit__city {
@@ -567,29 +571,41 @@ button {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding: 32px 30px 48px;
   border-radius: 34px;
   background-color: rgba(16, 33, 54, 0.8);
-  max-width: 280px;
+  padding: 32px 0 48px;
 }
 @media screen and (min-width: 768px) {
   .fiveDays__weather {
     max-width: 704px;
-    padding: 40px 53px;
+    padding: 40px 0;
   }
 }
 @media screen and (min-width: 1280px) {
   .fiveDays__weather {
     max-width: 1248px;
-    padding: 40px 107px;
+    padding: 40px 0;
   }
 }
 
 .fiveDays__weather-list {
+  max-width: 280px;
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;
   display: flex;
+}
+@media screen and (min-width: 768px) {
+  .fiveDays__weather-list {
+    max-width: 704px;
+    padding: 0 53px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .fiveDays__weather-list {
+    max-width: 1248px;
+    padding: 0 107px;
+  }
 }
 
 .fiveDays__country-title {
@@ -602,29 +618,14 @@ button {
   .fiveDays__country-title {
     font-size: 28px;
     line-height: 34px;
-    margin-left: 62%;
-    transform: translateX(-50%);
+    margin-bottom: 67px;
+    margin-top: -100px;
   }
 }
 @media screen and (min-width: 1280px) {
   .fiveDays__country-title {
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .mob {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
+    margin-top: -110px;
+    margin-bottom: 77px;
   }
 }
 
@@ -755,9 +756,124 @@ button {
   font-size: 12px;
   line-height: 14px;
 }
+.more-info:hover, .more-info:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
 @media screen and (min-width: 768px) {
   .more-info {
     font-size: 14px;
     line-height: 16px;
   }
+}
+
+.fiveDays__more-list {
+  padding: 48px 5px 0;
+}
+@media screen and (min-width: 768px) {
+  .fiveDays__more-list {
+    padding: 40px 22px 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .fiveDays__more-list {
+    padding: 33px 45px 0;
+  }
+}
+
+.fiveDays__more-item {
+  max-width: 120px;
+  padding: 20px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+}
+.fiveDays__more-item:hover, .fiveDays__more-item:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+@media screen and (min-width: 1280px) {
+  .fiveDays__more-item {
+    padding: 20px 32px;
+    max-width: 152px;
+  }
+}
+
+.more_time {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  opacity: 0.54;
+}
+
+.more-img {
+  width: 35px;
+  height: 35px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.more-tempreture {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ff6b09;
+  text-align: center;
+}
+@media screen and (min-width: 1280px) {
+  .more-tempreture {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+
+.more-speed {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  opacity: 0.54;
+}
+
+.speed-img {
+  margin-right: 10;
+  width: 20px;
+  height: 20px;
+}
+
+.more-humidity {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  opacity: 0.54;
+}
+
+.humidity-img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.more-wind {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  opacity: 0.54;
+}
+
+.wind-img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
 }/*# sourceMappingURL=main.css.map */

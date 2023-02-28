@@ -19,17 +19,17 @@
   border-radius: 30px;
   margin-bottom: 16px;
 
-  &::before {
-    content: '';
-    display: inline-block;
-    top: 25%;
-    background: url(../images/location.png) no-repeat center;
-    opacity: 0.3;
-    background-size: contain;
-    width: 22px;
-    height: 22px;
-    position: absolute;
-  }
+  // &::before {
+  //   content: '';
+  //   display: inline-block;
+  //   top: 25%;
+  //   background: url(../images/location.png) no-repeat center;
+  //   opacity: 0.3;
+  //   background-size: contain;
+  //   width: 22px;
+  //   height: 22px;
+  //   position: absolute;
+  // }
 
   .search-input {
     border: none;
@@ -47,37 +47,53 @@
     }
   }
 }
+.geo__city-btn {
+  fill: #000000;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  opacity: 0.471;
+  border: none;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: fill 200ms linear;
+  background: url(../images/location.png) no-repeat center;
+}
 .favorit__city {
-    display: flex;
+  display: flex;
+}
+.favorit__city-btn {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 5px 12px;
+  background-color: rgba(16, 33, 54, 0.5);
+  border: transparent;
+  color: #fff;
+  font-size: 12px;
+  line-height: 14px;
+  font-family: Lato;
+  font-weight: 400;
+
+  &:not(:last-child) {
+    margin-right: 10px;
   }
-  .favorit__city-btn {
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    padding: 5px 12px;
-    background-color: rgba(16, 33, 54, 0.5);
-    border: transparent;
-    color: #fff;
-    font-size: 12px;
-    line-height: 14px;
-    font-family: Lato;
-    font-weight: 400;
-  
-    &:not(:last-child) {
-      margin-right: 10px;
-    }
-    &:first-child {
-      margin-left: 32px;
-    }
-    @include tablet {
-      font-size: 14px;
-      line-height: 17px;
-    }
+  &:first-child {
+    margin-left: 32px;
   }
-  .delete-city {
-    width: 10px;
-    height: 10px;
-    margin-left: 10px;
-    opacity: 100%;
+  @include tablet {
+    font-size: 14px;
+    line-height: 17px;
   }
-  
+}
+.delete-city {
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  opacity: 100%;
+}

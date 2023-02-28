@@ -1,1 +1,0 @@
-import { onSubmit } from './input';
