@@ -32,7 +32,6 @@ function initPage() {
   const favoritCity = localStorage.getItem(favoritCityKey);
   const parsedFavoritCity = JSON.parse(favoritCity);
   const targetCity = localStorage.getItem(targetCityKey);
-  geoInit();
   if (favoritCity) {
     renderFavoritBtn(parsedFavoritCity);
   }
@@ -40,7 +39,9 @@ function initPage() {
   if (targetCity) {
     fetchBcgImg(targetCity);
     fetchWeather(targetCity);
+    return;
   }
+  geoInit();
 }
 initPage();
 //
