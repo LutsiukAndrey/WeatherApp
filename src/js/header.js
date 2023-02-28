@@ -1,49 +1,65 @@
 import { fetchBcgImg } from './changeBcg';
 import { keys } from './keys';
-import { addFavoritCity } from './favoritCitys';
+import { addRemoveFavoritCity } from './addRemoveFavoritCitys';
 import { geoLocationByCoords } from './getLocationByCoords';
-
-const { targetCityKey, targetGeoCity } = keys;
+import { renderFavoritBtn } from './render js/renderFavoritBtn';
+const { targetCityKey, targetGeoCity, favoritCityKey } = keys;
+const input = document.querySelector('.search-form');
+const favoritCityBtn = document.querySelector('.favorit__city');
 
 let inputValue = '';
-
+//
+//
+//
+// норм так?
+function initPage() {
+  const favoritCity = localStorage.getItem(favoritCityKey);
+  const parsedFavoritCity = JSON.parse(favoritCity);
+  if (favoritCity) {
+    renderFavoritBtn(parsedFavoritCity);
+  }
+}
+initPage();
+//
+//
+//
 const onSubmit = event => {
   event.preventDefault();
   const { value } = event.target.query;
   localStorage.setItem(targetCityKey, value.toLowerCase());
   fetchBcgImg(value.toLowerCase());
 };
-const onFavoritClick = event => {
+const onClickForm = event => {
   if (inputValue !== '' && event.target.className === 'favorite-btn') {
     // нужно добавить проверку существует ли такой город
-    addFavoritCity(inputValue.toLowerCase());
+    addRemoveFavoritCity(inputValue.toLowerCase());
   }
-};
-const onLocationClick = event => {
   if (event.target.className === 'target__city-btn') {
     navigator.geolocation.getCurrentPosition(async ({ coords }) => {
       const { latitude, longitude } = coords;
 
       const resolt = await geoLocationByCoords(latitude, longitude);
-      console.log(resolt);
-      console.log(targetGeoCity);
 
       localStorage.setItem(targetGeoCity, resolt);
     });
   }
 };
+
 const onInput = event => {
   inputValue = event.target.value;
 };
-const input = document.querySelector('.search-form');
+const onRemoveClick = event => {
+  if (event.target.className === 'delete-city') {
+    addRemoveFavoritCity(event.target.id);
+  }
+};
+favoritCityBtn.addEventListener('click', onRemoveClick);
 
 input.addEventListener('submit', onSubmit);
 input.addEventListener('input', onInput);
-input.addEventListener('click', onFavoritClick);
-input.addEventListener('click', onLocationClick);
+input.addEventListener('click', onClickForm);
 export default {
   onSubmit,
-  onFavoritClick,
-  onLocationClick,
+  onClickForm,
   onInput,
 };
