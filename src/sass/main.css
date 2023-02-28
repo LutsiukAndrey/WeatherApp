@@ -380,13 +380,14 @@ button {
 }
 @media screen and (min-width: 1280px) {
   .section__bottom-left {
+    display: flex;
     padding: 50px 103px 80px 16px;
     border-radius: 0 34px 0 0;
     margin: 0;
   }
 }
 
-.date__now {
+.date__now-day {
   font-size: 45px;
   line-height: 54px;
   font-weight: 300;
@@ -396,15 +397,15 @@ button {
   margin-bottom: 19px;
 }
 @media screen and (min-width: 768px) {
-  .date__now {
+  .date__now-day {
     font-size: 90px;
     line-height: 108px;
     margin-bottom: 16px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .date__now {
-    max-width: 280px;
+  .date__now-day {
+    max-width: 480px;
   }
 }
 
@@ -414,13 +415,7 @@ button {
   position: relative;
 }
 
-@media screen and (min-width: 1280px) {
-  .all-time {
-    display: flex;
-  }
-}
-
-.date__month-time {
+.month-time {
   display: flex;
   font-size: 14px;
   line-height: 17px;
@@ -429,24 +424,25 @@ button {
   margin-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
-  .date__month-time {
+  .month-time {
     font-size: 18px;
     line-height: 22px;
     margin-bottom: 30px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .date__month-time {
+  .month-time {
     margin-right: 136px;
     margin-bottom: 0;
   }
 }
 
-.month-now {
-  padding-right: 17px;
-  margin-right: 17px;
-  border-right: 1px solid rgb(118, 125, 133);
+@media screen and (min-width: 1280px) {
+  .all-time {
+    display: flex;
+  }
 }
+
 @media screen and (min-width: 768px) {
   .month-now {
     font-size: 18px;
@@ -461,11 +457,11 @@ button {
 }
 @media screen and (min-width: 768px) {
   .sun-time {
-    max-width: 189px;
     font-size: 18px;
     line-height: 22px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 120px;
   }
 }
 

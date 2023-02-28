@@ -16,11 +16,23 @@ const input = document.querySelector('.search-input');
 //
 //
 // норм так?
+const geoInit = () => {
+  navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+    const { latitude, longitude } = coords;
+
+    const resolt = await geoLocationByCoords(latitude, longitude);
+    input.value = resolt;
+    fetchBcgImg(resolt);
+    fetchWeather(resolt);
+
+    localStorage.setItem(targetCityKey, resolt);
+  });
+};
 function initPage() {
   const favoritCity = localStorage.getItem(favoritCityKey);
   const parsedFavoritCity = JSON.parse(favoritCity);
   const targetCity = localStorage.getItem(targetCityKey);
-
+  geoInit();
   if (favoritCity) {
     renderFavoritBtn(parsedFavoritCity);
   }
@@ -52,18 +64,9 @@ const onClickForm = event => {
 
     addRemoveFavoritCity(normolizedValue);
   }
-  if (event.target.className === 'geo__city-btn') {
-    navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-      const { latitude, longitude } = coords;
-
-      const resolt = await geoLocationByCoords(latitude, longitude);
-      input.value = resolt;
-      fetchBcgImg(resolt);
-
-      localStorage.setItem(targetCityKey, resolt);
-      fetchWeather(resolt);
-    });
-  }
+  // if (event.target.className === 'geo__city-btn') {
+  //   geoInit();
+  // }
 };
 
 const onRemoveClick = event => {

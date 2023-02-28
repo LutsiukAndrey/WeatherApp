@@ -14,7 +14,7 @@ export const currentDate = () => {
   setInterval(function () {
     const date = DateTime.now();
 
-    const month = { month: 'short' };
+    const month = { month: 'long' };
     const week = { weekday: 'short' };
     const { hour, minute, second, day } = date;
 
