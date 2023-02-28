@@ -6,7 +6,7 @@ const heroSection = document.querySelector('.hero__section ');
 export const renderHomePage = data => {
   if (heroSection) {
     weatherNowContent.innerHTML = createWeatherNowContent(data);
-    console.log('asdf');
+
     currentDate();
   }
 };
