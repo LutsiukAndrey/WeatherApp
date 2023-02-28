@@ -154,7 +154,7 @@ button {
   font-size: 14px;
 }
 
-.target__city-btn {
+.geo__city-btn {
   fill: #000000;
   position: absolute;
   top: 50%;

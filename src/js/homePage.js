@@ -1,10 +1,12 @@
-import { onSubmit } from './header';
-import { fetchBcgImg } from './changeBcg';
-import { keys } from './keys';
+import { currentDate } from './getCurrentDate';
+import { createWeatherNowContent } from './render js/createWeatherNowContent';
+const weatherNowContent = document.querySelector('.weather-contetn');
+const heroSection = document.querySelector('.hero__section ');
 
-const { targetCityKey } = keys;
-
-const targetCity = localStorage.getItem(targetCityKey);
-if (targetCity) {
-  fetchBcgImg(targetCity);
+export const renderHomePage = data => {
+  weatherNowContent.innerHTML = createWeatherNowContent(data);
+  console.log('asdf');
+};
+if (heroSection) {
+  currentDate();
 }

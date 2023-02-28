@@ -1,13 +1,17 @@
 import { fetchBcgImg } from './changeBcg';
 import { keys } from './keys';
 import { addRemoveFavoritCity } from './addRemoveFavoritCitys';
-import { geoLocationByCoords } from './getLocationByCoords';
+import { geoLocationByCoords } from './fetchLocationByCoords';
 import { renderFavoritBtn } from './render js/renderFavoritBtn';
-const { targetCityKey, targetGeoCity, favoritCityKey } = keys;
-const input = document.querySelector('.search-form');
-const favoritCityBtn = document.querySelector('.favorit__city');
+import { fetchWeather } from './fetchWeather';
 
-let inputValue = '';
+// import { renderWeatherNowContent } from './render js/renderWeatherNowContent';
+
+const { targetCityKey, favoritCityKey } = keys;
+const form = document.querySelector('.search-form');
+const favoritCityBtn = document.querySelector('.favorit__city');
+const input = document.querySelector('.search-input');
+
 //
 //
 //
@@ -15,8 +19,15 @@ let inputValue = '';
 function initPage() {
   const favoritCity = localStorage.getItem(favoritCityKey);
   const parsedFavoritCity = JSON.parse(favoritCity);
+  const targetCity = localStorage.getItem(targetCityKey);
+
   if (favoritCity) {
     renderFavoritBtn(parsedFavoritCity);
+  }
+
+  if (targetCity) {
+    fetchBcgImg(targetCity);
+    fetchWeather(targetCity);
   }
 }
 initPage();
@@ -26,28 +37,35 @@ initPage();
 const onSubmit = event => {
   event.preventDefault();
   const { value } = event.target.query;
-  localStorage.setItem(targetCityKey, value.toLowerCase());
-  fetchBcgImg(value.toLowerCase());
+  normolizedValue = value.trim();
+
+  localStorage.setItem(targetCityKey, normolizedValue);
+
+  fetchBcgImg(normolizedValue);
+  fetchWeather(normolizedValue);
 };
 const onClickForm = event => {
-  if (inputValue !== '' && event.target.className === 'favorite-btn') {
+  if (input.value !== '' && event.target.className === 'favorite-btn') {
     // нужно добавить проверку существует ли такой город
-    addRemoveFavoritCity(inputValue.toLowerCase());
+    const { value } = input;
+    normolizedValue = value.trim().replace(value[0], value[0].toUpperCase());
+
+    addRemoveFavoritCity(normolizedValue);
   }
-  if (event.target.className === 'target__city-btn') {
+  if (event.target.className === 'geo__city-btn') {
     navigator.geolocation.getCurrentPosition(async ({ coords }) => {
       const { latitude, longitude } = coords;
 
       const resolt = await geoLocationByCoords(latitude, longitude);
+      input.value = resolt;
+      fetchBcgImg(resolt);
 
-      localStorage.setItem(targetGeoCity, resolt);
+      localStorage.setItem(targetCityKey, resolt);
+      fetchWeather(resolt);
     });
   }
 };
 
-const onInput = event => {
-  inputValue = event.target.value;
-};
 const onRemoveClick = event => {
   if (event.target.className === 'delete-city') {
     addRemoveFavoritCity(event.target.id);
@@ -55,11 +73,5 @@ const onRemoveClick = event => {
 };
 favoritCityBtn.addEventListener('click', onRemoveClick);
 
-input.addEventListener('submit', onSubmit);
-input.addEventListener('input', onInput);
-input.addEventListener('click', onClickForm);
-export default {
-  onSubmit,
-  onClickForm,
-  onInput,
-};
+form.addEventListener('submit', onSubmit);
+form.addEventListener('click', onClickForm);
