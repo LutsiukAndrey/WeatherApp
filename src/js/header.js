@@ -49,7 +49,7 @@ initPage();
 const onSubmit = event => {
   event.preventDefault();
   const { value } = event.target.query;
-  normolizedValue = value.trim();
+  const normolizedValue = value.trim();
 
   localStorage.setItem(targetCityKey, normolizedValue);
 
@@ -60,7 +60,9 @@ const onClickForm = event => {
   if (input.value !== '' && event.target.className === 'favorite-btn') {
     // нужно добавить проверку существует ли такой город
     const { value } = input;
-    normolizedValue = value.trim().replace(value[0], value[0].toUpperCase());
+    const normolizedValue = value
+      .trim()
+      .replace(value[0], value[0].toUpperCase());
 
     addRemoveFavoritCity(normolizedValue);
   }
