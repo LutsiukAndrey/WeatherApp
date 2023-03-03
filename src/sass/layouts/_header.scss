@@ -79,6 +79,11 @@
   line-height: 14px;
   font-family: Lato;
   font-weight: 400;
+  &:hover,
+  &:focus {
+    background-color: #fff;
+    color: #000;
+  }
 
   &:not(:last-child) {
     margin-right: 10px;

@@ -1,10 +1,10 @@
 import { fetchBcgImg } from './changeBcg';
 import { keys } from './keys';
 import { addRemoveFavoritCity } from './addRemoveFavoritCitys';
-import { geoLocationByCoords } from './fetchLocationByCoords';
+import { geoLocationByCoords } from './fetch/fetchLocationByCoords';
 import { renderFavoritBtn } from './render js/renderFavoritBtn';
-import { fetchWeather } from './fetchWeather';
-
+import { fetchWeatherToday } from './fetch/fetchWeatherToday';
+// import { fetchWeatherFiveDays } from './fetch/fetchWeatherFiveDays';
 // import { renderWeatherNowContent } from './render js/renderWeatherNowContent';
 
 const { targetCityKey, favoritCityKey } = keys;
@@ -21,9 +21,12 @@ const geoInit = () => {
     const { latitude, longitude } = coords;
 
     const resolt = await geoLocationByCoords(latitude, longitude);
-    input.value = resolt;
+    if (input) {
+      input.value = resolt;
+    }
     fetchBcgImg(resolt);
-    fetchWeather(resolt);
+    fetchWeatherToday(resolt);
+    // fetchWeatherFiveDays(resolt);
 
     localStorage.setItem(targetCityKey, resolt);
   });
@@ -38,7 +41,8 @@ function initPage() {
 
   if (targetCity) {
     fetchBcgImg(targetCity);
-    fetchWeather(targetCity);
+    fetchWeatherToday(targetCity);
+    // fetchWeatherFiveDays(targetCity);
     return;
   }
   geoInit();
@@ -55,7 +59,8 @@ const onSubmit = event => {
   localStorage.setItem(targetCityKey, normolizedValue);
 
   fetchBcgImg(normolizedValue);
-  fetchWeather(normolizedValue);
+  fetchWeatherToday(normolizedValue);
+  // fetchWeatherFiveDays(normolizedValue);
 };
 const onClickForm = event => {
   if (input.value !== '' && event.target.className === 'favorite-btn') {
@@ -67,17 +72,28 @@ const onClickForm = event => {
 
     addRemoveFavoritCity(normolizedValue);
   }
-  // if (event.target.className === 'geo__city-btn') {
-  //   geoInit();
-  // }
+  if (event.target.className === 'geo__city-btn') {
+    geoInit();
+  }
 };
 
-const onRemoveClick = event => {
+const onFavoritBtnClick = event => {
   if (event.target.className === 'delete-city') {
     addRemoveFavoritCity(event.target.id);
   }
+  if (event.target.className === 'button favorit__city-btn') {
+    const cityName = event.target.textContent;
+    localStorage.setItem(targetCityKey, cityName);
+    input.value = cityName;
+    fetchBcgImg(cityName);
+    fetchWeatherToday(cityName);
+    // fetchWeatherFiveDays(cityName);
+  }
 };
-favoritCityBtn.addEventListener('click', onRemoveClick);
-
-form.addEventListener('submit', onSubmit);
-form.addEventListener('click', onClickForm);
+if (favoritCityBtn) {
+  favoritCityBtn.addEventListener('click', onFavoritBtnClick);
+}
+if (form) {
+  form.addEventListener('submit', onSubmit);
+  form.addEventListener('click', onClickForm);
+}

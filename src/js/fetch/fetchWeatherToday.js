@@ -1,6 +1,6 @@
-import { keys } from './keys';
+import { keys } from '../keys';
 import axios from 'axios';
-import { renderHomePage } from './homePage';
+import { renderHomePage } from '../homePage';
 const { weaterKey } = keys;
 
 const baseUrl = `https://api.openweathermap.org/data/2.5/weather?`;
@@ -11,7 +11,7 @@ const searchParams = new URLSearchParams({
   appid: weaterKey,
 });
 
-export async function fetchWeather(name) {
+export async function fetchWeatherToday(name) {
   const url = `${baseUrl}q=${name}&${searchParams}`;
   try {
     const { data } = await axios.get(url);

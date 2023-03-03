@@ -11,6 +11,8 @@ export const renderFavoritBtn = nameArr => {
   `;
     })
     .join('');
-  favoritBtnList.innerHTML = '';
-  favoritBtnList.insertAdjacentHTML('beforeend', favoritBtn);
+  if (favoritBtnList) {
+    favoritBtnList.innerHTML = '';
+    favoritBtnList.insertAdjacentHTML('beforeend', favoritBtn);
+  }
 };

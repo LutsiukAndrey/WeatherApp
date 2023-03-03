@@ -1,5 +1,5 @@
 // https://api.opencagedata.com/geocode/v1/json?q=50.4594432%2C30.4873472&key=0edaeb3cf63b4b65a9266a2ca328c10b&pretty=1&language=en
-import { keys } from './keys';
+import { keys } from '../keys';
 const { geoKey } = keys;
 import axios from 'axios';
 export async function geoLocationByCoords(lat, lon) {
