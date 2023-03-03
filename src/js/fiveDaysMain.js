@@ -1,12 +1,13 @@
-import { fetchBcgImg } from './changeBcg';
-import { keys } from './keys';
-import '../js/header';
+const fiveDays = document.querySelector('.five-days-section');
 
-const { targetCityKey } = keys;
-const fiveDaysPage = document.querySelector('.five-days-section');
-export const createFiveDays = data => {
+// import '../js/header';
+
+import { fetchWeatherFiveDays } from './fetch/fetchWeatherFiveDays';
+// const targetCity = localStorage.getItem(targetCityKey);
+console.log('5days');
+// if (targetCity) {
+//   fetchBcgImg(targetCity);
+// }
+export const aaa = data => {
   console.log(data);
 };
-if (fiveDaysPage) {
-  console.log('Five Days');
-}

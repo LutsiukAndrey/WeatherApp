@@ -1,2 +1,3 @@
 import './js/homePage';
-import './js/header';
+
+// import './js/header';

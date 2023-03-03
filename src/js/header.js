@@ -4,8 +4,7 @@ import { addRemoveFavoritCity } from './addRemoveFavoritCitys';
 import { geoLocationByCoords } from './fetch/fetchLocationByCoords';
 import { renderFavoritBtn } from './render js/renderFavoritBtn';
 import { fetchWeatherToday } from './fetch/fetchWeatherToday';
-// import { fetchWeatherFiveDays } from './fetch/fetchWeatherFiveDays';
-// import { renderWeatherNowContent } from './render js/renderWeatherNowContent';
+// import { aaa } from './fiveDaysMain';
 
 const { targetCityKey, favoritCityKey } = keys;
 const form = document.querySelector('.search-form');
@@ -26,7 +25,7 @@ const geoInit = () => {
     }
     fetchBcgImg(resolt);
     fetchWeatherToday(resolt);
-    // fetchWeatherFiveDays(resolt);
+    // aaa(resolt);
 
     localStorage.setItem(targetCityKey, resolt);
   });
