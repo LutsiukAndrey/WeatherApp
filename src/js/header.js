@@ -1,21 +1,27 @@
 import { fetchBcgImg } from './changeBcg';
 import { keys } from './keys';
+function getCurrentURL() {
+  return window.location.pathname;
+}
+const uaadsasdrl = getCurrentURL();
+// if(uaadsasdrl === '/index.html'){}
 import { addRemoveFavoritCity } from './addRemoveFavoritCitys';
 import { geoLocationByCoords } from './fetch/fetchLocationByCoords';
 import { renderFavoritBtn } from './render js/renderFavoritBtn';
 import { fetchWeatherToday } from './fetch/fetchWeatherToday';
-// import { fetchWeatherFiveDays } from './fetch/fetchWeatherFiveDays';
-// import { renderWeatherNowContent } from './render js/renderWeatherNowContent';
+import { fetchWeatherFiveDays } from './fetch/fetchWeatherFiveDays';
 
 const { targetCityKey, favoritCityKey } = keys;
 const form = document.querySelector('.search-form');
 const favoritCityBtn = document.querySelector('.favorit__city');
 const input = document.querySelector('.search-input');
-
+const fiveDays = document.querySelector('.five-days-section');
 //
 //
 //
 // норм так?
+export let dataForFiveDays = null;
+
 const geoInit = () => {
   navigator.geolocation.getCurrentPosition(async ({ coords }) => {
     const { latitude, longitude } = coords;
@@ -26,7 +32,8 @@ const geoInit = () => {
     }
     fetchBcgImg(resolt);
     fetchWeatherToday(resolt);
-    // fetchWeatherFiveDays(resolt);
+
+    fetchWeatherFiveDays(resolt);
 
     localStorage.setItem(targetCityKey, resolt);
   });
@@ -42,7 +49,9 @@ function initPage() {
   if (targetCity) {
     fetchBcgImg(targetCity);
     fetchWeatherToday(targetCity);
-    // fetchWeatherFiveDays(targetCity);
+
+    fetchWeatherFiveDays(targetCity);
+
     return;
   }
   geoInit();

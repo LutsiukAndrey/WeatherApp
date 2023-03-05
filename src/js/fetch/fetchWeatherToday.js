@@ -1,6 +1,7 @@
 import { keys } from '../keys';
 import axios from 'axios';
 import { renderHomePage } from '../homePage';
+
 const { weaterKey } = keys;
 
 const baseUrl = `https://api.openweathermap.org/data/2.5/weather?`;
@@ -16,6 +17,9 @@ export async function fetchWeatherToday(name) {
   try {
     const { data } = await axios.get(url);
     renderHomePage(data);
+
+    // Example
+
     return data;
   } catch (error) {
     console.log(error);

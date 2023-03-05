@@ -1,6 +1,6 @@
 import { keys } from '../keys';
 import axios from 'axios';
-import { createFiveDays } from '../fiveDaysMain';
+import { createFiveDays } from '../homePage';
 
 const { weaterKey } = keys;
 
@@ -16,8 +16,8 @@ export async function fetchWeatherFiveDays(name) {
   const url = `${baseUrl}q=${name}&${searchParams}`;
   try {
     const { data } = await axios.get(url);
+    console.log(data);
     createFiveDays(data);
-    return data;
   } catch (error) {
     console.log(error);
   }
