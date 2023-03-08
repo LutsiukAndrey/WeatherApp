@@ -1,1 +1,0 @@
-{"mappings":"oeAAAA,EAAA,S","sources":["src/index.js"],"sourcesContent":["import './js/homePage';\nimport './js/header';\n"],"names":["parcelRequire"],"version":3,"file":"index.b8d404ba.js.map"}
