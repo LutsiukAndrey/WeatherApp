@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather for five days</title>
+    <title>Five days</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,75 +20,31 @@
     />
     <link rel="stylesheet" href="./sass/main.scss" />
   </head>
+
   <body>
     <div class="container-gradient">
-      <div class=" container">
-          <include src="./partials/header.html"></include>
-          <section class="five-days-section">
-      
-
-  <div class="nav__buttons-list fiveDays-btn">
-      <a href="./index.html" class="nav__button">TODAY</a>
-      
-      <a href="./fiveDays.html" class="nav__button">5 DAYS</a>
+      <div class="container">
+        <include src="./partials/header.html"></include>
+        <section class="five-days-section">
+          <div class="nav__buttons-list fiveDays-btn">
+            <a href="./index.html" class="nav__button">TODAY</a>
+            <a href="./fiveDays.html" class="nav__button">5 DAYS</a>
+          </div>
+          <div class="fiveDays__weather">
+            <p class="fiveDays__country-title">Kyiv, UA</p>
+            <div class="slider_line">
+              <ul class="fiveDays__weather-list"></ul>
+            </div>
+            <div class="slider-buttons">
+              <button type="button" class="btn_plus">-</button>
+              <button type="button">+</button>
+            </div>
+            <div class="detailedList"></div>
+          </div>
+        </section>
+      </div>
     </div>
 
-
-        <div class="fiveDays__weather">
-        <p class="fiveDays__country-title ">Kyiv, UA</p>
-        <ul class="fiveDays__weather-list">
-      
-    
-      <!-- <li class="fiveDays__weather-item">
-            <h3 class="fiveDays__weather-name-day">Sunday</h3>
-            <p class="fiveDays__weather-date">
-              <span class="date-num">09 &nbsp</span
-              ><span class="date-name">Feb</span>
-            </p>
-            <img
-              src="./images/loudy.png"
-              alt=""
-              class="fiveDays__weather-img"
-            />
-            <div class="fiveDays__tempreture">
-         
-                  <ul class="fiveDays__weather__list-minormax">
-                    <li class="fiveDays__weather__list-min">
-                      <p class="fiveDays__list-temp">min</p>
-                      <p class="fiveDays__list-deg">
-                 -2 &#176
-                      </p>
-                      </li>
-                    <li class="fiveDays__weather__list-max">
-                      <p class="fiveDays__list-temp">max</p>
-                      <p class="fiveDays__list-deg">
-                        1 &#176
-                      </p>
-                
-                  </li>
-                  </ul>
-                </div>
-                <button type="button" class="more-info">more info</button>
-          </li>      -->
-      
-                </ul>
-        <ul class="fiveDays__more-list">
-          <li class="fiveDays__more-item">
-            <p class="more_time">00:00</p>
-            <img src="./images/loudy.png" alt="" class="more-img">
-            <p class="more-tempreture">-2 &#176</p>
-            <p class="more-speed"><img src="./images/barometer.png" alt="" class="speed-img">722mm</p>
-            <p class="more-humidity"><img src="./images/cuple.png" alt="" class="humidity-img"> 54%</p>
-            <p class="more-wind"><img src="./images/wind.png" alt="" class="wind-img"> 3.7 m/s</p>
-          </li>
-        </ul>
-           
-              </div>
-        </div>
-    </div>
-
-</section>
-<script src="./index.js" type="module"></script>
-
+    <script src="./index.js" type="module"></script>
   </body>
 </html>

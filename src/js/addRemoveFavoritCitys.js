@@ -7,7 +7,7 @@ let favoritCitys = [];
 
 const addedFavoritCity = localStorage.getItem(favoritCityKey);
 const parsedCitys = JSON.parse(addedFavoritCity);
-console.log();
+
 if (parsedCitys) {
   favoritCitys = [...parsedCitys];
 }
@@ -27,3 +27,4 @@ const addRemoveFavoritCity = name => {
 };
 
 export { addRemoveFavoritCity };
+console.log('safsadf');
